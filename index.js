@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", userRoute);
 
 
-const port =  3000;
+const port = process.env.PORT || 3000;
 const uri = "mongodb+srv://afanjaved0122:c0SifUQK3xe933dj@cluster0.ltkki.mongodb.net/examReady";
 
 app.listen(port, () => {
@@ -25,7 +25,7 @@ app.listen(port, () => {
 });
 
 mongoose
-  .connect(uri, {
+  .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

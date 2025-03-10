@@ -78,16 +78,16 @@ const signUp = async (req, res) => {
 
 const signIn = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { Email, Password } = req.body;
 
-        if (!email || !password) {
+        if (!Email || !Password) {
             return res.status(400).json({
                 status: 400,
                 message: "Email and password are required",
             });
         }
 
-        const user = await auth.findOne({ email });
+        const user = await auth.findOne({ Email });
 
         if (!user) {
             return res.status(401).json({
